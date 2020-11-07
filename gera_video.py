@@ -8,7 +8,7 @@
 '''
 
     Nome: Rafael Prudencio Leite
-    NUSP: 11224852
+    NUSP: ********
 
     Ao preencher esse cabeçalho com o meu nome e o meu número USP,
     declaro que todas as partes originais desse exercício programa (EP)
