@@ -1,2 +1,3 @@
 # Algoritmos
 Este repositório contém os códigos desenvolvidos na matéria de MAC0122 - Princípios de Desenvolvimento de Algoritmos, oferecida no segundo semestre pelo IME-USP.
+Examples of algorithms that use stacks and queues. Introduction to linked lists and pointers. Recursive algorithms. Search, insertion, and deletion in arrays and linked lists. Binary search. Sorting algorithms (insertion sort, selection sort, mergesort, heapsort, quicksot, etc.) String matching algorithms. Some enumeration algorithms and some algorithms for optimization over sequences. Informal proof of correctness of algorithms. Empirical analysis of performance of algorithms.
