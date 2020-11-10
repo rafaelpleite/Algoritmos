@@ -8,8 +8,8 @@
 
 '''
 
-    Nome: Rafael Prudêncio Leite
-    NUSP: ******
+    Nome:Anderson Lima dos Santos
+    NUSP:########
 
     Ao preencher esse cabeçalho com o meu nome e o meu número USP,
     declaro que todas as partes originais desse exercício programa (EP)
@@ -50,82 +50,63 @@ class Paguime:
         o tipo e quantidade disponíveis de cada fcoin e atende os 
         pagamentos quando possível.
     '''
-    
-    def __init__(self, arr):
-        self.saldo = arr
-        
+    def __init__(self, array):
+        self.caixa = array
+        self.size = array.size
+        self.data = array.data   
+        self.shape = array.shape
     def __str__(self):
-        saldo = str('O saldo a máquina é:\n')
-        for i in self.saldo:
-            saldo += str(i[1]) + ' fcoins de '+ str(i[0]) + ' Frogs\n'
-        return saldo
+        array = self.caixa
+        nlin,ncol = self.shape
+        s = ''
+        n = 0
+        print("O saldo do caixa é: \n")
+        while n < nlin:
+            s += f'{array[n,1]} fcoins de {array[n,0]} Frogs\n'
+            n += 1
+        return (s)
     
     def pague(self,valor):
-        copia = np.copy(self.saldo)
+        copia = np.copy(self.caixa)
         copia[:,1] = 0
         if valor == 0:
             return copia
-        if np.sum(self.saldo[:,0]*self.saldo[:,1]) < valor:
-            return None
-        gasto = recursiva(copia, self.saldo, valor)
+        gasto = pagueR(copia,self.caixa,valor)
         return gasto
-    
-    
-    
-def recursiva(copia, caixa, valor):
-    if valor <= copia[0,0]:
-        for i, val in enumerate(caixa[:,0]):
-            if val == valor and caixa[i,1] > 0:
-                copia[i,1] += 1 
-                caixa[i,1] -= 1 
-                return copia
-            
-        for i, val in enumerate(caixa[:,0]):
-            if val < valor and caixa[i,1] > 0:
-                copia[i,1] += 1 
-                caixa[i,1] -= 1 
-                v = valor - val
-                recursiva(copia, caixa, v)
-                return copia
-    if valor > copia[0,0]:
-        for i, val in enumerate(caixa[:,0]):
-            if val > 0:
-                copia[i,1] += 1
-                caixa[i,1] -= 1 
-                v = valor - val
-                recursiva(copia, caixa, v)
-                return copia
-    return copia
-    
 
-        
-            
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+def pagueR(copia, caixa, valor):
+    nlin, ncol = caixa.shape
+    #caso base
+    if valor == 0:
+        return
+    #daqui para baixo o intuito é apenas mudar a cópia-------------------------
+    if valor <= copia[0,0]:
+        n = 0
+        while n < nlin:
+            if caixa[n,0] == valor and caixa[n,1] > 0:
+                copia[n,1] += 1
+                caixa[n,1] -= 1
+                return copia
+            n += 1
+        n = 0
+        while n < nlin:
+            if caixa[n,0] < valor and caixa[n,1] > 0:
+                copia[n,1] += 1
+                caixa[n,1] -= 1
+                v = valor - copia[n,0]
+                pagueR(copia,caixa,v)
+                return copia
+            n += 1
+    if valor > copia[0,0]:
+        n = 0 
+        while n < nlin:
+            if caixa[n,1] > 0:
+                copia[n,1] += 1
+                caixa[n,1] -= 1
+                v = valor - copia[n,0]
+                pagueR(copia,caixa,v)
+                return copia
+            n += 1
+    return copia
     
