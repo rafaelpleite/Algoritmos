@@ -40,63 +40,11 @@
 
 '''
 
-#-------------------------------------------------------------------
-#
-# Funções administrativas mergeX() e mergesortX()
-#
-#-------------------------------------------------------------------
-def mergeX(v, e, m, d):
-    ''' (list, int, int, int) -> int
-
-    RECEBE uma lista v tal que v[e:m] e v[m:d] estão em ordem crescente. 
-    A função intercala essas fatias de forma que v[e:d] esteja em ordem crescente.
-
-    RETORNA o número de transposições necessários para ordenar v[e:d].
-    '''
-    x = v[e:m] # clone
-    y = v[m:d] # clone
-    y.reverse() # método mutador
-    w = x + y
-    i = 0
-    j = d-e-1
-    n = 0
-    for k in range(e,d):
-        if w[i] <= w[j]:
-            v[k] = w[i]
-            i += 1
-        else:
-            v[k] = w[j]
-            n += 1
-            j -= 1
-
-def mergesortX(v, e=None, d=None):
-    ''' (list, int, int) -> int
-
-    Recebe uma lista v e dois inteiros que definem 
-    um segmento de v que deve ser ordenado. 
-
-    Quando e e d são None, a lista inteira deve ser ordenada.
-
-    A função retorna o número de transposições resultantes da ordenação 
-    de v[e:d].
-    '''
-    if e >= d-1: return
-    m = (e + d) // 2
-    mergesortX(v, e, m)
-    mergesortX(v, m, d)
-    mergeX(v, e, m, d)
-
-
-
-#-----------------------------------------------------------
 class Cliente:
     '''
-        Copie a sua classe Cliente do EP10 para aqui.
+        Siga as especificações do enunciado para 
+        construir a classe Cliente.
 
-        Estenda essa classe adicionando os métodos:
-           em_comum() e distanciaX()
-        como especifado no enunciado.
- 
         Coloque o seu código a seguir.
     '''
     
@@ -145,4 +93,18 @@ def sort(numcliente2): #str --> int
                 interacao += 1
                 numcliente2[j], numcliente2[j-1] = numcliente2[j-1], numcliente2[j]
     return interacao
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
