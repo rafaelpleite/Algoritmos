@@ -5,7 +5,7 @@
 # NÃO APAGUE OS DOCSTRINGS
 # NÃO INCLUA NENHUM import ...
 #------------------------------------------------------------------
-
+#IMPLEMENTAR ISSO USANDO DICIONÁRIO
 '''
 
     Nome: Rafael Prudêncio Leite
