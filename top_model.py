@@ -72,7 +72,8 @@ class TopModel:
         return None
     
     def media_verossimilhanca(self, string, citacao):
-        if type(self.verossimilhanca_total(string, citacao)) == float: return self.verossimilhanca_total(string, citacao) / len(citacao)
+        if type(self.verossimilhanca_total(string, citacao)) == float: 
+            return self.verossimilhanca_total(string, citacao) / len(citacao)
         self.verossimilhanca_total(string, citacao)
         
     def top_model(self, citacao):
